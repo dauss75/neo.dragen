@@ -1,0 +1,11 @@
+#! /bin/sh
+
+var1="MOL18-163696_S77 MOL18-163711_S78 MOL18-163723_S79 MOL18-163727_S80"
+var2="MOL18-163711_S78 MOL18-163727_S80 MOL18-163738_S82 MOL18-163742_S84"
+
+set $var2 
+for i in $var1  
+do
+  echo "$i" "$1"   
+  shift 
+done

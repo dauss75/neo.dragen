@@ -10,3 +10,12 @@ dragen -f -r /staging/human/reference/hg19/hg19.fa.k_21.f_16.m_149.v6 --tumor-fa
 
 - 322 panel test location: /isilon/sjung_tmp/dragen/NextSeqOutput/181212_NS500399_0425_AHMFFJBGX7/Data/Intensities/BaseCalls
 - previous batch script location: /isilon/dragen
+
+- extract tumor and normal list
+```
+awk  -F ',' '{print $1,$4}' QIAseq-010219_T_N.csv |grep tumor |awk '{print $1}' > tumor_tmp.txt
+awk  -F ',' '{print $1,$4}' QIAseq-010219_T_N.csv |grep normal |awk '{print $1}' > normal_tmp.txt
+```
+
+- run the main script
+`nohup ./run_tumor_normal.sh > QIAseq-010219_T_N.log`
